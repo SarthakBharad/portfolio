@@ -430,7 +430,3 @@ For questions, feedback, or collaboration opportunities:
 ---
 
 **Last Updated:** February 2026
-
----
-
-*Built with ❤️ using React and Vite*
