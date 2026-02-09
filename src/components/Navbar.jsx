@@ -14,7 +14,8 @@ import { PrimaryButton } from './ui'
 import {
     motion,
     useScroll,
-    useTransform
+    useTransform,
+    AnimatePresence  // ← ADDED: For mobile menu animation
 } from 'framer-motion';
 
 import { useState } from 'react';
@@ -122,10 +123,10 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                                 <motion.span
                                     whileHover={{ scale: 1.1 }}   // Hover scale
                                     whileTap={{ scale: 0.95 }}    // Tap/click scale
-                                    className={`font-medium ${
+                                    className={`font-medium transition-colors ${
                                         activeSection === item.name.toLowerCase()
                                             ? theme.textActive     // Active state
-                                            : `${theme.textSecondary} ${theme.textHover}` // Inactive with hover
+                                            : `${theme.textSecondary} hover:${theme.textHover}` // Inactive with hover
                                     }`}
                                 >
                                     {item.name}
@@ -143,6 +144,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                             whileTap={{ scale: 0.9 }}     // Tap animation
                             onClick={toggleDarkMode}
                             className={`p-2 rounded-full ${theme.toggleBg}`}
+                            title="Toggle theme"
                         >
                             {/* Conditionally render sun or moon icon */}
                             {darkMode
@@ -165,6 +167,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                             whileTap={{ scale: 0.9 }}     // Tap animation
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                             className={`p-2 rounded-lg ${theme.toggleBg}`}
+                            title="Toggle mobile menu"
                         >
                             {/* Toggle between menu and close icons */}
                             {isMenuOpen
@@ -174,6 +177,78 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                         </motion.button>
                     </div>
                 </div>
+
+                {/* ===== MOBILE MENU DROPDOWN ===== */}
+                {/* This section was completely missing in the original! */}
+                <AnimatePresence>
+                    {isMenuOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className={`lg:hidden border-t ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
+                        >
+                            <div className="flex flex-col gap-4 pt-4">
+                                {/* Mobile Navigation Items */}
+                                {navItems.map((item) => (
+                                    <motion.a
+                                        key={item.name}
+                                        href={item.id}
+                                        onClick={() => handleNavClick(item.name)}
+                                        whileTap={{ scale: 0.95 }}
+                                        className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                                            activeSection === item.name.toLowerCase()
+                                                ? `${theme.navBg} ${theme.textActive}`
+                                                : `${theme.textSecondary}`
+                                        }`}
+                                    >
+                                        {item.name}
+                                    </motion.a>
+                                ))}
+
+                                {/* Divider */}
+                                <div className={`h-px my-2 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
+
+                                {/* Mobile Controls */}
+                                <div className="flex flex-col gap-3 pb-2">
+                                    {/* Theme Toggle */}
+                                    <motion.button
+                                        whileTap={{ scale: 0.95 }}
+                                        onClick={toggleDarkMode}
+                                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${theme.toggleBg}`}
+                                    >
+                                        {darkMode
+                                            ? <>
+                                                <Sun className="w-4 h-4" />
+                                                <span>Light Mode</span>
+                                            </>
+                                            : <>
+                                                <Moon className="w-4 h-4" />
+                                                <span>Dark Mode</span>
+                                            </>
+                                        }
+                                    </motion.button>
+
+                                    {/* Hire Me Button */}
+                                    <a 
+                                        href="mailto:sarthakbharad3105@gmail.com" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="w-full"
+                                    >
+                                        <motion.button
+                                            whileTap={{ scale: 0.95 }}
+                                            className="w-full px-4 py-2 bg-gradient-to-r from-green-500 to-green-400 text-white font-semibold rounded-lg transition-all"
+                                        >
+                                            Hire Me
+                                        </motion.button>
+                                    </a>
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </motion.nav>
         </div>
     );
