@@ -15,7 +15,7 @@ A modern, responsive portfolio website showcasing game development projects, ful
 - **🔥 Modern Tech Stack** - Built with React, Vite, and Tailwind CSS for optimal performance
 - **📊 Skills Section** - Interactive proficiency bars showing technical expertise with Font Awesome icons
 - **📧 Contact Section** - Easy contact options with email, phone, and social media links
-- **🚀 Production Ready** - Firebase integration, optimized build, SEO-friendly
+- **🚀 Production Ready** - Optimized build, SEO-friendly, easy deployment
 
 ---
 
@@ -30,8 +30,7 @@ A modern, responsive portfolio website showcasing game development projects, ful
 ### Libraries & Tools
 - **AOS (Animate On Scroll)** - Scroll animation library
 - **Font Awesome** - Icon library for social links and skills
-- **React Router** (optional) - Client-side routing
-- **Firebase** - Backend services and analytics
+- **React Router** - Client-side routing (if using multi-page)
 
 ### Development
 - **ESLint** - Code quality linting
@@ -60,26 +59,17 @@ cd portfolio
 npm install
 ```
 
-3. **Set up environment variables** (if using Firebase)
-```bash
-# Create .env.local file
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-VITE_FIREBASE_APP_ID=your_app_id
-```
-
-4. **Start development server**
+3. **Start development server**
 ```bash
 npm run dev
 ```
 
-5. **Open in browser**
+4. **Open in browser**
 ```
 http://localhost:5173
 ```
+
+That's it! No environment variables needed. 🎉
 
 ---
 
@@ -90,6 +80,7 @@ portfolio/
 ├── src/
 │   ├── components/
 │   │   ├── ui/
+│   │   │   ├── index.js
 │   │   │   ├── PrimaryButton.jsx
 │   │   │   └── SecondaryButton.jsx
 │   │   ├── Hero.jsx
@@ -97,26 +88,23 @@ portfolio/
 │   │   ├── Skills.jsx
 │   │   ├── Projects.jsx
 │   │   ├── Contact.jsx
-│   │   ├── Footer.jsx
 │   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
 │   │   └── index.js
 │   ├── assets/
 │   │   ├── images/
 │   │   └── pdfs/
-│   ├── config/
-│   │   └── firebase.js
 │   ├── theme/
 │   │   └── theme.js
 │   ├── App.jsx
 │   ├── index.css
 │   └── main.jsx
 ├── public/
-│   └── favicon.ico
 ├── index.html
 ├── vite.config.js
+├── eslint.config.js
 ├── package.json
-├── README.md
-└── .gitignore
+└── README.md
 ```
 
 ---
@@ -174,6 +162,12 @@ export const darkTheme = {
     buttonPrimary: 'from-green-500 to-green-400',
     // ... more colors
 };
+
+export const lightTheme = {
+    textPrimary: 'text-gray-900',
+    buttonPrimary: 'from-green-500 to-green-400',
+    // ... more colors
+};
 ```
 
 ### Add Your Content
@@ -181,13 +175,17 @@ export const darkTheme = {
 2. **About Section** - Modify `src/components/About.jsx` 
 3. **Skills Section** - Edit skill list in `src/components/Skills.jsx`
 4. **Projects Section** - Add projects to `src/components/Projects.jsx`
-5. **Assets** - Replace images and PDFs in `src/assets/`
+5. **Contact Section** - Update `src/components/Contact.jsx`
+6. **Assets** - Replace images and PDFs in `src/assets/`
 
 ### Custom Favicon
 1. Create your favicon (512x512 PNG)
-2. Convert to ICO format
+2. Convert to ICO format (use https://convertio.co/png-ico/)
 3. Place in `public/favicon.ico`
-4. Update favicon link in `index.html`
+4. Update favicon link in `index.html`:
+```html
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+```
 
 ---
 
@@ -241,22 +239,8 @@ npm i -g netlify-cli
 netlify deploy --prod
 ```
 
-### Deploy to Firebase Hosting
-```bash
-# Install Firebase CLI
-npm i -g firebase-tools
-
-# Login and initialize
-firebase login
-firebase init hosting
-
-# Build and deploy
-npm run build
-firebase deploy
-```
-
 ### Deploy to GitHub Pages
-Update `vite.config.js`:
+1. Update `vite.config.js`:
 ```javascript
 export default {
   base: '/portfolio/',
@@ -264,7 +248,15 @@ export default {
 }
 ```
 
-Then build and push to GitHub.
+2. Build and push to GitHub:
+```bash
+npm run build
+git add dist/
+git commit -m "build: update production build"
+git push origin main
+```
+
+3. Enable GitHub Pages in repository settings
 
 ---
 
@@ -287,7 +279,6 @@ Then build and push to GitHub.
   "react-dom": "^18.x",
   "framer-motion": "^10.x",
   "aos": "^2.x",
-  "firebase": "^10.x",
   "tailwindcss": "^3.x"
 }
 ```
@@ -297,10 +288,10 @@ Then build and push to GitHub.
 ## 🎓 Skills Showcased
 
 - **Game Development** - Godot Engine, 2D game design
-- **Full-Stack Web** - React, Node.js, Firebase
+- **Full-Stack Web** - React, Node.js, responsive design
 - **Languages** - Python, JavaScript, C++, GDScript
-- **Tools** - Git, VS Code, Linux, Figma
-- **Frontend** - React, Tailwind CSS, Responsive Design
+- **Tools** - Git, VS Code, Linux, responsive design
+- **Frontend** - React, Tailwind CSS, responsive design
 - **Embedded Systems** - IoT, C++, Embedded Linux
 
 ---
@@ -317,10 +308,10 @@ Then build and push to GitHub.
 
 ## 🔒 Security
 
-- ✅ Environment variables for sensitive data
-- ✅ Firebase security rules configured
-- ✅ No API keys exposed in code
+- ✅ No sensitive data exposure
+- ✅ Clean code without hardcoded secrets
 - ✅ HTTPS support for all deployments
+- ✅ Content Security Policy ready
 
 ---
 
@@ -337,7 +328,7 @@ Then build and push to GitHub.
 - [x] Smooth navigation
 - [x] Contact form with validation
 - [x] Social media integration
-- [x] Project showcase with filters
+- [x] Project showcase with descriptions
 - [x] Skills section with proficiency levels
 
 ### Performance
@@ -382,6 +373,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - 🔗 Portfolio: [Your Portfolio URL]
 - 💼 LinkedIn: [Your LinkedIn](https://linkedin.com/in/sarthak-bharad)
 - 🐙 GitHub: [@SarthakBharad](https://github.com/SarthakBharad)
+- 🐦 Twitter: [@maybesarthak](https://x.com/maybesarthak)
 - 📧 Email: sarthakbharad3105@gmail.com
 - 📱 Phone: +49 155 10325695
 
@@ -394,7 +386,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [AOS (Animate on Scroll)](https://michalsnik.github.io/aos/)
-- [Firebase Documentation](https://firebase.google.com/docs)
+- [Font Awesome Icons](https://fontawesome.com/)
 
 ---
 
