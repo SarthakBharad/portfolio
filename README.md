@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing game development projects, full-stack applications, and technical skills. Built with React, Vite, and modern web technologies.
 
-**Live Demo:** [Your Portfolio URL]
+**Live Demo:** [https://portfolio-sarthak-bharad.vercel.app/]
 
 ---
 
@@ -430,7 +430,3 @@ For questions, feedback, or collaboration opportunities:
 ---
 
 **Last Updated:** February 2026
-
----
-
-*Built with ❤️ using React and Vite*
