@@ -4,6 +4,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import log_collector_image from '../assets/log_collector_image.png';
 import edusphere_image from '../assets/edusphere_image.png';
 import space_shooter_image from '../assets/space_shooter_image.png';
+import platformer_image from '../assets/platformer_image.png'
 
 const Projects = ({ darkMode }) => {
 
@@ -12,6 +13,15 @@ const Projects = ({ darkMode }) => {
   const projectsList = [
     {
       id: 1,
+      title: 'Godot 3D Platformer',
+      github: 'https://github.com/SarthakBharad-Godot/3d-platformer',
+      description:
+        '3D platformer in Godot. Run, jump, and explore vibrant levels while collecting coins and defeating enemies. Responsive controls, classic platforming action, and customizable assets included.',
+      image: platformer_image,
+      tags: ['Godot', 'GDScript', 'Game Engine']
+    },
+    {
+      id: 2,
       title: 'Godot Space Shooter',
       github: 'https://github.com/SarthakBharad-Godot/space-shooter',
       description:
@@ -20,7 +30,7 @@ const Projects = ({ darkMode }) => {
       tags: ['Godot', 'GDScript', 'Game Engine']
     },
     {
-      id: 2,
+      id: 3,
       title: 'IoT Log Aggregation System',
       github: 'https://github.com/SarthakBharad/bl602-log-collector',
       description:
@@ -29,7 +39,7 @@ const Projects = ({ darkMode }) => {
       tags: ['C/C++', 'Python', 'Embedded Systems']
     },
     {
-      id: 3,
+      id: 4,
       title: 'EduSphere AI: Adaptive Learning UI',
       github: 'https://github.com/EduSphere-AI/edusphere-ai-ui',
       description:
