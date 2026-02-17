@@ -347,6 +347,23 @@ git push origin main
 
 ---
 
+## 📜 License
+
+This project is licensed under the **GNU General Public License v3.0** (GPL-3.0). See the [LICENSE](LICENSE) file for details.
+
+You are free to:
+
+* ✅ Use this project commercially or personally
+* ✅ Modify and distribute the code
+* ✅ Create derivative works
+
+With the condition that:
+
+* 📋 You must include the original license and copyright notice
+* 📖 Derivatives must also be licensed under GPL-3.0
+
+---
+
 ## 🤝 Contributing
 
 This is a personal portfolio project, but feel free to fork and adapt it for your own use!
