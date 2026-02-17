@@ -370,12 +370,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 **Sarthak D. Bharad**
 
 - 📍 Location: Schmalkalden, Germany
-- 🔗 Portfolio: [Your Portfolio URL]
-- 💼 LinkedIn: [Your LinkedIn](https://linkedin.com/in/sarthak-bharad)
+- 💼 LinkedIn: [Sarthak Bharad](https://linkedin.com/in/sarthak-bharad)
 - 🐙 GitHub: [@SarthakBharad](https://github.com/SarthakBharad)
 - 🐦 Twitter: [@maybesarthak](https://x.com/maybesarthak)
 - 📧 Email: sarthakbharad3105@gmail.com
-- 📱 Phone: +49 155 10325695
 
 ---
 
@@ -406,17 +404,6 @@ If you like this portfolio template, please consider:
 - 🔗 Sharing with others
 - 💬 Providing feedback
 - 🙌 Contributing improvements
-
----
-
-## 📞 Contact & Support
-
-For questions, feedback, or collaboration opportunities:
-
-- **Email:** sarthakbharad3105@gmail.com
-- **LinkedIn:** [Your LinkedIn Profile](https://linkedin.com/in/sarthak-bharad)
-- **GitHub:** [@SarthakBharad](https://github.com/SarthakBharad)
-- **Twitter:** [@maybesarthak](https://x.com/maybesarthak)
 
 ---
 
