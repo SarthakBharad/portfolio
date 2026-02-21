@@ -5,6 +5,7 @@
  */
 
 import { useEffect, useState } from "react"
+import { Analytics } from '@vercel/analytics/react'
 
 // Import components from centralized barrel file
 import {

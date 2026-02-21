@@ -26,13 +26,15 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
 
     // Handle navigation click for both desktop and mobile
     const handleNavClick = (itemName, itemId = `#${itemName.toLowerCase()}`) => {
-        setActiveSection(itemName.toLowerCase());
-        setIsMenuOpen(false);
+    setActiveSection(itemName.toLowerCase());
+    setIsMenuOpen(false);
 
+    setTimeout(() => {
         const target = document.querySelector(itemId);
         if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+    }, 300); // matches the menu's exit animation duration (0.3s)
     };
 
     const { scrollY } = useScroll();
