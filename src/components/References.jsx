@@ -49,7 +49,7 @@ const References = ({ darkMode }) => {
                     text-transparent bg-gradient-to-r from-green-600 to-green-400 bg-clip-text"
                     data-aos="fade-up"
                 >
-                    References & Documents
+                    References
                 </h1>
 
                 {/* Reference Cards */}
