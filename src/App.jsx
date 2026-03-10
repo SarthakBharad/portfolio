@@ -14,6 +14,7 @@ import {
   About,
   Skills,
   Projects,
+  References,
   Contact,
   Footer,
 } from "./components";
@@ -89,6 +90,9 @@ const App = () => {
 
       {/* Projects section - */}
       <Projects darkMode = {darkMode}/>
+
+      {/* References section - */}
+      <References darkMode = {darkMode}/>
 
       {/* Contact section - */}
       <Contact darkMode = {darkMode}/>
